@@ -31,24 +31,17 @@ public class TypewiseAlert
     MED_ACTIVE_COOLING
   };
   
-  
-  
-  public static int[] classifyTemperatureBreach(
-      CoolingType coolingType) {
-    int lowerLimit = 0;
-    int upperLimit = 0;
-    switch(coolingType) {
-      case PASSIVE_COOLING:
-        upperLimit = 35;
-        break;
-      case HI_ACTIVE_COOLING:
-        upperLimit = 45;
-        break;
-      case MED_ACTIVE_COOLING:
-        upperLimit = 40;
-        break;
+   
+  public static int[] classifyTemperatureBreach(CoolingType coolingType) {
+    if(coolingType==CoolingType.PASSIVE_COOLING) {
+      return new int[] {0,35};
     }
-    return new int[] {lowerLimit,upperLimit};
+    else if(coolingType==CoolingType.HI_ACTIVE_COOLING) {
+      return new int[] {0,45};
+    }
+    else {
+      return new int[] {0,40};
+    }
   }
   
   
@@ -100,21 +93,13 @@ public class TypewiseAlert
   }
   
    
-  
   public static void sendToEmail(BreachType breachType) {
     String recepient = "a.b@c.com";
-    switch(breachType) {
-      case TOO_LOW:
-      case TOO_HIGH:
+    if(breachType!=BreachType.NORMAL) {
         System.out.printf("To: %s\n", recepient);
         System.out.println("Hi, the temperature is too "+ breachType +"\n");
-        break;
-      case NORMAL:
-        break;
     }
-  }
-  
-  
+  } 
   
   
   
