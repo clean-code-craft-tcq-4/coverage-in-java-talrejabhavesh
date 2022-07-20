@@ -3,7 +3,7 @@ package TypewiseAlert;
 public class TypewiseAlert 
 {
     
-
+  
   public enum BreachType {
     NORMAL,
     TOO_LOW,
@@ -31,7 +31,8 @@ public class TypewiseAlert
     MED_ACTIVE_COOLING
   };
   
-   
+  
+  /* it returns lower and upper limit of temperatures as an integer array*/
   public static int[] classifyTemperatureBreach(CoolingType coolingType) {
     if(coolingType==CoolingType.PASSIVE_COOLING) {
       return new int[] {0,35};
@@ -61,7 +62,7 @@ public class TypewiseAlert
   
   
   
-  public static BreachType checkAndAlert(
+  public static BreachType checkBreachType(
       BatteryCharacter batteryChar, double temperatureInC) {
     
     int[] limits=classifyTemperatureBreach(
@@ -92,17 +93,16 @@ public class TypewiseAlert
     System.out.printf("%s : %s\n", header, breachType);
   }
   
-   
+  
+  
+  
   public static void sendToEmail(BreachType breachType) {
     String recepient = "a.b@c.com";
     if(breachType!=BreachType.NORMAL) {
         System.out.printf("To: %s\n", recepient);
         System.out.println("Hi, the temperature is too "+ breachType +"\n");
     }
-  } 
-  
-  
-  
-
+  }
+ 
 
 }
