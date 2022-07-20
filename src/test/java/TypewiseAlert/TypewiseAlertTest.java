@@ -6,7 +6,6 @@ import org.junit.Test;
 
 public class TypewiseAlertTest 
 {
-
   @Test
   public void infersBreachAsPerLimits()
   {
@@ -29,7 +28,7 @@ public class TypewiseAlertTest
     
     TypewiseAlert.BatteryCharacter batteryCharacter = new TypewiseAlert.BatteryCharacter ();
     batteryCharacter.coolingType=TypewiseAlert.CoolingType.PASSIVE_COOLING;
-    assertTrue("test", TypewiseAlert.checkAndAlert(batteryCharacter, 22)==TypewiseAlert.BreachType.NORMAL);
+    assertTrue("test", TypewiseAlert.checkBreachType(batteryCharacter, 22)==TypewiseAlert.BreachType.NORMAL);
   
   }
 
