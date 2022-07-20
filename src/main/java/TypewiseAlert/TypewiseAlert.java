@@ -39,15 +39,12 @@ public class TypewiseAlert
     int upperLimit = 0;
     switch(coolingType) {
       case PASSIVE_COOLING:
-        lowerLimit = 0;
         upperLimit = 35;
         break;
       case HI_ACTIVE_COOLING:
-        lowerLimit = 0;
         upperLimit = 45;
         break;
       case MED_ACTIVE_COOLING:
-        lowerLimit = 0;
         upperLimit = 40;
         break;
     }
@@ -102,24 +99,21 @@ public class TypewiseAlert
     System.out.printf("%s : %s\n", header, breachType);
   }
   
-  
-  
+   
   
   public static void sendToEmail(BreachType breachType) {
     String recepient = "a.b@c.com";
     switch(breachType) {
       case TOO_LOW:
-        System.out.printf("To: %s\n", recepient);
-        System.out.println("Hi, the temperature is too low\n");
-        break;
       case TOO_HIGH:
         System.out.printf("To: %s\n", recepient);
-        System.out.println("Hi, the temperature is too high\n");
+        System.out.println("Hi, the temperature is too "+ breachType +"\n");
         break;
       case NORMAL:
         break;
     }
   }
+  
   
   
   
