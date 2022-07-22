@@ -6,7 +6,7 @@ import org.junit.Test;
 
 public class TypewiseAlertTest 
 {
-  @Test
+   @Test
   public void infersBreachAsPerLimits()
   {
     assertTrue("test", TypewiseAlert.inferBreach(12, 20, 30) ==
@@ -25,11 +25,13 @@ public class TypewiseAlertTest
     assertTrue("test", TypewiseAlert.sendAlert(TypewiseAlert.AlertTarget.TO_EMAIL,TypewiseAlert.BreachType.TOO_LOW));
     assertTrue("test", TypewiseAlert.sendAlert(TypewiseAlert.AlertTarget.TO_EMAIL,TypewiseAlert.BreachType.TOO_HIGH));
     assertTrue("test", TypewiseAlert.sendAlert(TypewiseAlert.AlertTarget.TO_EMAIL,TypewiseAlert.BreachType.NORMAL));
+    assertFalse("test", TypewiseAlert.sendAlert(null,TypewiseAlert.BreachType.NORMAL));
     
+    TypewiseAlert typewiseAlert=new TypewiseAlert();
     TypewiseAlert.BatteryCharacter batteryCharacter = new TypewiseAlert.BatteryCharacter ();
     batteryCharacter.coolingType=TypewiseAlert.CoolingType.PASSIVE_COOLING;
-    assertTrue("test", TypewiseAlert.checkBreachType(batteryCharacter, 22)==TypewiseAlert.BreachType.NORMAL);
-  
-  }
+    batteryCharacter.brand="Sample";
+    assertTrue("test", typewiseAlert.checkBreachType(batteryCharacter, 22)==TypewiseAlert.BreachType.NORMAL);
 
+  
 }
