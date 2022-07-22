@@ -32,6 +32,6 @@ public class TypewiseAlertTest
     batteryCharacter.coolingType=TypewiseAlert.CoolingType.PASSIVE_COOLING;
     batteryCharacter.brand="Sample";
     assertTrue("test", typewiseAlert.checkBreachType(batteryCharacter, 22)==TypewiseAlert.BreachType.NORMAL);
-
+  }
   
 }
