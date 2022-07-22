@@ -25,7 +25,7 @@ public class TypewiseAlertTest
     assertTrue("test", TypewiseAlert.sendAlert(TypewiseAlert.AlertTarget.TO_EMAIL,TypewiseAlert.BreachType.TOO_LOW));
     assertTrue("test", TypewiseAlert.sendAlert(TypewiseAlert.AlertTarget.TO_EMAIL,TypewiseAlert.BreachType.TOO_HIGH));
     assertTrue("test", TypewiseAlert.sendAlert(TypewiseAlert.AlertTarget.TO_EMAIL,TypewiseAlert.BreachType.NORMAL));
-    assertFalse("test", TypewiseAlert.sendAlert(null,TypewiseAlert.BreachType.NORMAL));
+    assertTrue("test", TypewiseAlert.sendAlert(null,TypewiseAlert.BreachType.NORMAL)==false);
     
     TypewiseAlert typewiseAlert=new TypewiseAlert();
     TypewiseAlert.BatteryCharacter batteryCharacter = new TypewiseAlert.BatteryCharacter ();
