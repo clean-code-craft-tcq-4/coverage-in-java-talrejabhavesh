@@ -17,6 +17,7 @@ public class TypewiseAlertTest
         TypewiseAlert.BreachType.TOO_HIGH);
     
     
+     
     assertTrue("test", TypewiseAlert.classifyTemperatureBreach(TypewiseAlert.CoolingType.PASSIVE_COOLING)[0] ==0);
     assertTrue("test", TypewiseAlert.classifyTemperatureBreach(TypewiseAlert.CoolingType.HI_ACTIVE_COOLING)[1] ==45);
     assertTrue("test", TypewiseAlert.classifyTemperatureBreach(TypewiseAlert.CoolingType.MED_ACTIVE_COOLING)[1] ==40);
